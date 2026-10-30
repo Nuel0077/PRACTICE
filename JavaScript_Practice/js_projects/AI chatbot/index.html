@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbox</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    
+    <!-- Chat launcher -->
+
+<button class="chat-launcher"
+        id="chatLauncher"
+        aria-label="Open Necris AI">
+
+    <span class="launcher-chat">▢</span>
+    <span class="launcher-close">×</span>
+
+</button>
+
+
+<!-- Chat window -->
+
+<section class="chat-window" id="chatWindow">
+
+    <header class="chat-header">
+
+        <div class="logo">✦</div>
+
+        <div class="header-info">
+            <h3>Sapphire :) AI</h3>
+            <p>Your AI assistant</p>
+        </div>
+
+        <div class="header-actions">
+
+            <button id="historyButton"
+                    title="Chat history"
+                    aria-label="Chat history">☷</button>
+
+            <button id="newChatButton"
+                    title="New chat"
+                    aria-label="New chat">＋</button>
+
+            <button id="minimizeButton"
+                    title="Close chat"
+                    aria-label="Close chat">×</button>
+
+        </div>
+
+    </header>
+
+
+    <!-- History panel -->
+
+    <div class="history-panel" id="historyPanel">
+
+        <div class="history-heading">
+
+            <h3>Chat history</h3>
+
+            <button class="new-chat-button"
+                    id="historyNewChat">+ New chat</button>
+
+        </div>
+
+        <div class="history-list" id="historyList"></div>
+
+    </div>
+
+
+    <!-- Messages -->
+
+    <div class="messages" id="messages">
+
+        <div class="welcome" id="welcome">
+
+            <div class="welcome-icon">✦</div>
+
+            <h2>How can I help you?</h2>
+
+            <p>
+                Ask questions, explore ideas, learn programming,
+                or get help understanding a topic.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Selected images -->
+
+    <div class="image-preview" id="imagePreview"></div>
+
+
+    <!-- Composer -->
+
+    <div class="composer-area">
+
+        <div class="composer">
+
+            <button class="tool-button"
+                    id="uploadButton"
+                    title="Upload images"
+                    aria-label="Upload images">＋</button>
+
+            <input type="file"
+                   id="imageInput"
+                   accept="image/*"
+                   multiple
+                   hidden>
+
+            <textarea id="messageInput"
+                      rows="1"
+                      placeholder="Ask Sapphire anything..."
+                      aria-label="Message"></textarea>
+
+            <button class="tool-button"
+                    id="emojiButton"
+                    title="Add emoji"
+                    aria-label="Add emoji">☺</button>
+
+            <button class="send-button"
+                    id="sendButton"
+                    aria-label="Send message">↑</button>
+
+            <div class="emoji-picker" id="emojiPicker" hidden>
+
+                <button>😀</button>
+                <button>😂</button>
+                <button>😍</button>
+                <button>🥹</button>
+                <button>🤔</button>
+                <button>👍</button>
+                <button>❤️</button>
+                <button>🔥</button>
+                <button>🎉</button>
+                <button>💻</button>
+                <button>✨</button>
+                <button>🙏</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <p class="disclaimer">
+        Sapphire AI · Demo mode
+    </p>
+
+</section>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

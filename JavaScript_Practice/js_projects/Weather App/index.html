@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#78b8e9">
+
+    <title>Weather App</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+    <main class="weather-app" id="weatherApp">
+
+        <!-- Background -->
+        <div class="background-scene" id="backgroundScene">
+            <div class="sun-glow"></div>
+            <div class="sun"></div>
+            <div class="cloud cloud-one"></div>
+            <div class="cloud cloud-two"></div>
+
+            <div class="mountains">
+                <div class="mountain mountain-one"></div>
+                <div class="mountain mountain-two"></div>
+            </div>
+
+            <div class="ocean"></div>
+            <div class="land"></div>
+
+            <div class="river"></div>
+
+            <div class="grass"></div>
+
+            <div class="flowers flowers-one">🌼 🌸 🌷 🌼</div>
+            <div class="flowers flowers-two">🌷 🌼 🌸 🌺</div>
+
+            <div class="person">
+                <div class="person-head"></div>
+                <div class="person-body"></div>
+                <div class="person-arm"></div>
+                <div class="person-leg leg-one"></div>
+                <div class="person-leg leg-two"></div>
+            </div>
+        </div>
+
+        <!-- Top status bar -->
+        <header class="top-bar">
+            <span id="deviceTime">16:45</span>
+        </header>
+
+        <!-- Location -->
+        <section class="location-section">
+
+            <div class="location-name">
+                <span class="location-pin">●</span>
+                <span id="cityName">Lagos</span>
+            </div>
+
+            <button class="icon-button search-button"
+                    id="openSearch"
+                    aria-label="Search city">
+                ⌕
+            </button>
+
+            <button class="icon-button refresh-button"
+                    id="refreshWeather"
+                    aria-label="Refresh weather">
+                ↻
+            </button>
+
+        </section>
+
+        <!-- Search panel -->
+        <form class="search-panel hidden" id="searchForm">
+
+            <input
+                type="text"
+                id="cityInput"
+                placeholder="Search city..."
+                autocomplete="off"
+                required
+            >
+
+            <button type="submit">Search</button>
+
+            <button type="button" id="closeSearch">✕</button>
+
+        </form>
+
+        <p class="status-message" id="statusMessage" role="status">
+            Getting the latest weather...
+        </p>
+
+        <!-- Current weather -->
+        <section class="current-weather">
+
+            <div class="temperature" id="currentTemperature">--°</div>
+
+            <div class="weather-description" id="weatherDescription">
+                Loading weather...
+            </div>
+
+            <div class="high-low">
+                <div>
+                    <span>↑</span>
+                    <span id="highTemperature">--°</span>
+                </div>
+
+                <div>
+                    <span>↓</span>
+                    <span id="lowTemperature">--°</span>
+                </div>
+            </div>
+
+            <div class="feels-like">
+                Feels like <span id="feelsLike">--°</span>
+            </div>
+
+        </section>
+
+        <!-- Heat/weather message -->
+        <section class="weather-alert glass-card">
+
+            <div class="alert-icon" id="alertIcon">☀</div>
+
+            <div>
+                <h3 id="alertTitle">Today's weather</h3>
+                <p id="alertDescription">
+                    Checking the latest forecast...
+                </p>
+            </div>
+
+        </section>
+
+        <!-- Hourly forecast -->
+        <section class="hourly-card glass-card">
+
+            <div class="section-heading">
+                <h2>Hourly forecast</h2>
+                <span id="hourlyDate">Today</span>
+            </div>
+
+            <div class="hourly-list" id="hourlyForecast">
+
+                <div class="loading-item">Loading forecast...</div>
+
+            </div>
+
+            <div class="temperature-chart">
+                <svg
+                    id="temperatureChart"
+                    viewBox="0 0 340 80"
+                    preserveAspectRatio="none"
+                    aria-label="Hourly temperature graph"
+                >
+                    <defs>
+                        <linearGradient id="chartGradient"
+                                        x1="0" y1="0"
+                                        x2="1" y2="0">
+                            <stop offset="0%" stop-color="#ffbb43"/>
+                            <stop offset="100%" stop-color="#ff8c25"/>
+                        </linearGradient>
+                    </defs>
+
+                    <path id="chartPath"
+                          d=""
+                          fill="none"
+                          stroke="url(#chartGradient)"
+                          stroke-width="3"
+                          stroke-linecap="round"/>
+                </svg>
+            </div>
+
+            <div class="hourly-details" id="hourlyDetails"></div>
+
+            <button class="text-button" id="showMoreHours">
+                Next 48 hours <span>›</span>
+            </button>
+
+        </section>
+
+        <!-- Weather highlight -->
+        <section class="highlight-card glass-card">
+
+            <div class="highlight-heading">
+                <span>🌡</span>
+                <span>Weather outlook</span>
+            </div>
+
+            <div class="highlight-content">
+
+                <div>
+                    <h3 id="highlightTitle">Weather forecast</h3>
+
+                    <p id="highlightDescription">
+                        Preparing your forecast...
+                    </p>
+                </div>
+
+                <div class="tomorrow-temperature">
+                    <strong id="tomorrowTemperature">--°C</strong>
+                    <span>Tomorrow</span>
+                </div>
+
+            </div>
+
+            <div class="dots">
+                <span class="active"></span>
+                <span></span>
+                <span></span>
+            </div>
+
+        </section>
+
+        <!-- Daily forecast -->
+        <section class="daily-card glass-card">
+
+            <div class="section-heading">
+                <h2>7-day forecast</h2>
+            </div>
+
+            <div class="daily-list" id="dailyForecast">
+
+                <div class="loading-item">Loading daily forecast...</div>
+
+            </div>
+
+        </section>
+
+        <!-- Weather details -->
+        <section class="details-card glass-card">
+
+            <div class="section-heading">
+                <h2>Weather details</h2>
+            </div>
+
+            <div class="details-grid">
+
+                <div class="detail-item">
+                    <span>💧</span>
+                    <p>Humidity</p>
+                    <strong id="humidity">--%</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>🌬</span>
+                    <p>Wind speed</p>
+                    <strong id="windSpeed">-- km/h</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>🌅</span>
+                    <p>Sunrise</p>
+                    <strong id="sunrise">--:--</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>🌇</span>
+                    <p>Sunset</p>
+                    <strong id="sunset">--:--</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>☁</span>
+                    <p>Cloud cover</p>
+                    <strong id="cloudCover">--%</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>🌧</span>
+                    <p>Rain chance</p>
+                    <strong id="rainChance">--%</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Bottom navigation -->
+        <nav class="bottom-navigation">
+
+            <button id="locationButton" aria-label="Use my location">
+                <span>◎</span>
+                <small>Location</small>
+            </button>
+
+            <button id="homeButton" class="nav-active" aria-label="Home">
+                <span>⌂</span>
+                <small>Weather</small>
+            </button>
+
+            <button id="forecastButton" aria-label="Forecast">
+                <span>▤</span>
+                <small>Forecast</small>
+            </button>
+
+            <button id="searchNavigation" aria-label="Search">
+                <span>⌕</span>
+                <small>Search</small>
+            </button>
+
+        </nav>
+
+        <footer class="app-footer">
+            Weather data provided by Open-Meteo
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

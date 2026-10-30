@@ -1,0 +1,160 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0d1117;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    background: #161b22;
+    padding: 30px 20px;
+    border-radius: 15px;
+    border: 1px solid #30363d;
+}
+
+h1 {
+    color: #58a6ff;
+    margin-bottom: 10px;
+}
+
+.container > p {
+    color: #8b949e;
+    margin-bottom: 25px;
+}
+
+form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    background: #0d1117;
+    color: white;
+    outline: none;
+}
+
+input:focus {
+    border-color: #58a6ff;
+}
+
+button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 6px;
+    background: #238636;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #2ea043;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#message {
+    color: #f85149;
+    margin: 15px 0;
+}
+
+.profile {
+    margin-top: 25px;
+}
+
+.hidden {
+    display: none;
+}
+
+#avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #58a6ff;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.profile h2 {
+    margin-bottom: 10px;
+}
+
+#bio,
+#location {
+    color: #8b949e;
+    margin-bottom: 12px;
+    overflow-wrap: anywhere;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.stats div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stats strong {
+    font-size: 20px;
+    color: #58a6ff;
+}
+
+.stats span {
+    font-size: 12px;
+    color: #8b949e;
+}
+
+#github-link {
+    display: inline-block;
+    background: #238636;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+}
+
+#github-link:hover {
+    background: #2ea043;
+}
+
+@media (max-width: 400px) {
+    .container {
+        padding: 25px 15px;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+}
